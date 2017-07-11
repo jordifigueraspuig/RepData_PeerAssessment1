@@ -54,7 +54,7 @@ mean_steps$steps<-tapply(activity$steps,activity$interval,mean,na.rm=TRUE)
 qplot(mean_steps$interval,mean_steps$steps,geom="line",na.rm=TRUE)
 ```
 
-![plot of chunk max interval](figure/max interval-1.png)
+![plot of chunk max_interval](figure/max_interval-1.png)
 
 ```r
 max_mean_steps<-max(mean_steps$steps)
@@ -89,7 +89,7 @@ legend("topright", lty = c(1,1,2,2), col = c("red", "blue","red", "blue"), legen
 rug(total_stepsnoNA)
 ```
 
-![plot of chunk substituting narm](figure/substituting narm-1.png)
+![plot of chunk substituting_narm](figure/substituting_narm-1.png)
 
 Prior to the substitution there were `total_na` missing values. 
 
@@ -126,7 +126,7 @@ grid.arrange(p1,p2)
 ## `geom_smooth()` using method = 'loess'
 ```
 
-![plot of chunk weekdays vs weekends](figure/weekdays vs weekends-1.png)
+![plot of chunk weekdays_vs_weekends](figure/weekdays_vs_weekends-1.png)
 
 Comparing weekdays and weekends, weekdays show a slightly larger activity at low intervals (around 600, suggesting getting up earlier),while the activity at the 1200-2000 interval is larger during weekends. Also, activity ends later (suggesting going to bed later).
 

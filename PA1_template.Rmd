@@ -44,7 +44,7 @@ Mean number of steps per day is `r mean_daily` and the median of the distributio
 
 ### What is the average daily activity pattern?
 Next chunck creates a new data frame containing the mean for each interval, plots the evolution and provides the maximum mean. 
-```{r max interval,echo=TRUE}
+```{r max_interval,echo=TRUE}
 mean_steps<-as.data.frame(activity$interval[1:288])
 colnames(mean_steps)<-c("interval")
 mean_steps$steps<-tapply(activity$steps,activity$interval,mean,na.rm=TRUE)
@@ -57,7 +57,7 @@ Maximum mean number of steps per interval is `r max_mean_steps`.
 ### Imputing missing values
 In this section, the number of NA is calculated, and the NA values are substituted by the mean of that interval for the rest of the days. 
 
-```{r substituting narm,echo=TRUE}
+```{r substituting_narm,echo=TRUE}
 total_na<-sum(is.na(activity$steps))
 activity_noNA<-mutate(activity,stepsnoNA=activity$steps)
 for (i in 1:17568) {
@@ -89,7 +89,7 @@ values bigger than 0 (the mean of the value for the interval). Furthermore, afte
 
 ### Weekdays vs Weekend
 Next section plots time evolution of the mean for weekdays and weekends.
-```{r weekdays vs weekends,echo=TRUE}
+```{r weekdays_vs_weekends,echo=TRUE}
 
 activity<-mutate(activity,weekday=weekdays(activity$date))
 for (i in 1:17568){
