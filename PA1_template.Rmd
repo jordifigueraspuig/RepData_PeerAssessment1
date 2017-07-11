@@ -49,10 +49,11 @@ mean_steps<-as.data.frame(activity$interval[1:288])
 colnames(mean_steps)<-c("interval")
 mean_steps$steps<-tapply(activity$steps,activity$interval,mean,na.rm=TRUE)
 qplot(mean_steps$interval,mean_steps$steps,geom="line",na.rm=TRUE)
-max_mean_steps<-max(mean_steps$steps)
+max_mean_steps<-mean_steps[mean_steps$steps==max(mean_steps$steps),1:2]
 ```
 
-Maximum mean number of steps per interval is `r max_mean_steps`.
+Maximum mean number of steps per interval is `r max_mean_steps[2]`,and corresponding interval is `r max_mean_steps[1]`.
+
 
 ### Imputing missing values
 In this section, the number of NA is calculated, and the NA values are substituted by the mean of that interval for the rest of the days. 
@@ -80,7 +81,7 @@ legend("topright", lty = c(1,1,2,2), col = c("red", "blue","red", "blue"), legen
 rug(total_stepsnoNA)
 ```
 
-Prior to the substitution there were `total_na` missing values. 
+Prior to the substitution there were `r total_na` missing values. 
 
 New values for mean and median are mean=`r mean_dailynoNA` and
 median=`r median_dailynoNA`. They are higher than the values before substitution:

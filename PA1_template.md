@@ -57,10 +57,11 @@ qplot(mean_steps$interval,mean_steps$steps,geom="line",na.rm=TRUE)
 ![plot of chunk max_interval](figure/max_interval-1.png)
 
 ```r
-max_mean_steps<-max(mean_steps$steps)
+max_mean_steps<-mean_steps[mean_steps$steps==max(mean_steps$steps),1:2]
 ```
 
-Maximum mean number of steps per interval is 206.1698113.
+Maximum mean number of steps per interval is 206.1698113,and corresponding interval is 835.
+
 
 ### Imputing missing values
 In this section, the number of NA is calculated, and the NA values are substituted by the mean of that interval for the rest of the days. 
@@ -91,7 +92,7 @@ rug(total_stepsnoNA)
 
 ![plot of chunk substituting_narm](figure/substituting_narm-1.png)
 
-Prior to the substitution there were `total_na` missing values. 
+Prior to the substitution there were 2304 missing values. 
 
 New values for mean and median are mean=1.0766189 &times; 10<sup>4</sup> and
 median=1.0766189 &times; 10<sup>4</sup>. They are higher than the values before substitution:
